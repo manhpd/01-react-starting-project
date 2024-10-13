@@ -1,5 +1,5 @@
 import React from "react";
-import { EXAMPLES } from "../../data"
+import { EXAMPLES } from "../../../data"
 
 export default function TabContent({selectedTopic}: {selectedTopic: string}) {
     return (

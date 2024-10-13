@@ -3,6 +3,7 @@ import { EXAMPLES } from '../../data';
 import TabContent from './tab-content/TabContent';
 import TabButton from './tap-button/TabButton';
 import Section from '../section/Section';
+import TabMenu from './tap-menu/TabMenu';
 
 export default function Examples() {
     const [selectedTopic, setSelectedTopic] = React.useState<string | null>(null);
@@ -18,16 +19,14 @@ export default function Examples() {
 
     return (
         <Section id="examples" title="Examples">
-            <menu>
-                {/* loop through EXAMPLES and render each tab button */}
-                {/* <TabButton onSelect={() => handleSelect("components")} >Components</TabButton> */}
-                {Object.keys(EXAMPLES).map((key) => (
+            <TabMenu 
+            buttons=  {Object.keys(EXAMPLES).map((key) => (
                     <TabButton key={key} onClick={() => handleSelect(key)} isSelected={selectedTopic === key} >{EXAMPLES[key].title}</TabButton>
-                ))}
-            </menu>
-            <div id="tab-content">
-                {tabContent}
-            </div>
+                ))}>
+                <div id="tab-content">
+                    {tabContent}
+                </div>
+            </TabMenu>
         </Section>
     )
 }
